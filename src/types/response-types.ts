@@ -1,4 +1,4 @@
-import { ErrorData, UserData } from './data-types';
+import { ArmyData, ErrorData, UserData } from './data-types';
 
 /**
  * Base API response interface.
@@ -54,4 +54,13 @@ export interface GetUsersResponse extends Response {
  */
 export interface GetUserResponse extends Response {
   user: UserData;
+}
+
+/**
+ * Get armies response interface.
+ * 
+ * This response is returned by `GET /users/:id/armies`.
+ */
+export interface GetArmiesResponse extends Response {
+  armies: ArmyData[];
 }

@@ -37,7 +37,7 @@ export const Canvas: FC<CanvasProps> = ({ army, ...rest }) => {
     return () => {
       window.cancelAnimationFrame(animationFrameId);
     }
-  }, []);
+  }, [army]);
 
   return (
     <canvas ref={canvasRef} {...rest} />

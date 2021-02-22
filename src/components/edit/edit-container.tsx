@@ -39,10 +39,8 @@ export const EditContainer: FC = () => {
         speedMultiplier: _.random(0.0, 0.2)
       } as BarbarianConfiguration
     });
-    setArmy(prev => ({ ...prev, size: { width: prev.size.width + 1, height: prev.size.height }, entities }));
-    updateArmyQuery.patch(`http://localhost/users/602ebcb8be9e91334c4cbf18/armies/${army.id}`, {
-      entities
-    });
+    setArmy(prev => ({ ...prev, entities }));
+    updateArmyQuery.patch(`http://localhost/users/602ebcb8be9e91334c4cbf18/armies/${army.id}`, { entities });
   }
 
   return (

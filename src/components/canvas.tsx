@@ -4,7 +4,7 @@ import { ArmyData } from '../types/data-types';
 /**
  * Canvas props.
  */
-export interface CanvasProps extends HTMLProps<HTMLCanvasElement> {
+export type CanvasProps = HTMLProps<HTMLCanvasElement> & {
   army: ArmyData;
 }
 

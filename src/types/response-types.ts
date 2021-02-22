@@ -1,28 +1,28 @@
 import { ArmyData, ErrorData, UserData } from './data-types';
 
 /**
- * Base API response interface.
+ * Base API response.
  */
 export interface Response {
   [key: string]: unknown;
 }
 
 /**
- * Error response interface.
+ * Error response.
  */
 export interface ErrorResponse extends Response {
   errors: ErrorData[];
 }
 
 /**
- * Access token response interface.
+ * Access token response.
  */
 export interface AccessTokenResponse extends Response {
   access_token: string;
 }
 
 /**
- * Refresh token response interface.
+ * Refresh token response.
  */
 export interface RefreshTokenResponse extends Response {
   access_token: string;
@@ -30,7 +30,7 @@ export interface RefreshTokenResponse extends Response {
 }
 
 /**
- * Creation response interface.
+ * Creation response.
  * 
  * This API response is returned by any `POST` that creates a new resource.
  */
@@ -39,7 +39,7 @@ export interface CreationResponse extends Response {
 }
 
 /**
- * Get users response interface.
+ * Get users response.
  * 
  * This response is returned by `GET /users`.
  */
@@ -48,7 +48,7 @@ export interface GetUsersResponse extends Response {
 }
 
 /**
- * Get user response interface.
+ * Get user response.
  * 
  * This response is returned by `GET /users/:id`.
  */
@@ -57,7 +57,7 @@ export interface GetUserResponse extends Response {
 }
 
 /**
- * Get armies response interface.
+ * Get armies response.
  * 
  * This response is returned by `GET /users/:id/armies`.
  */

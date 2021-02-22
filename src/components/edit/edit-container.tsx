@@ -1,11 +1,9 @@
-import _ from 'lodash';
 import { FC, useEffect, useState } from 'react';
 import { Status, useQuery } from '../../hooks/query-hook';
-import { BarbarianConfiguration } from '../../types/configuration-types';
 import { ArmyData } from '../../types/data-types';
 import { CreationResponse, GetArmiesResponse } from '../../types/response-types';
 import { Canvas } from '../canvas';
-import { EditForm, EditFormValues } from './edit-form';
+import { EditFormContainer as EditForm, EditFormValues } from './edit-form';
 
 /**
  * Edit container.
@@ -27,17 +25,13 @@ export const EditContainer: FC = () => {
     }
   }, [armyQuery.status]);
 
-  const handleEditFormSubmit = (values: EditFormValues) => {
+  const handleCreate = (values: EditFormValues) => {
     const entities = [...army.entities];
     entities.push({
-      position: { x: _.random(0, army.size.width - 2), y: _.random(0, army.size.width - 2) },
-      size: { width: 2, height: 2 },
+      position: { x: values.positionX, y: values.positionY },
+      size: { width: values.width, height: values.height },
       color: values.type === 'barbarian' ? '#0F0' : '#F00',
-      config: {
-        type: values.type,
-        speed: _.random(0.8, 1.2),
-        speedMultiplier: _.random(0.0, 0.2)
-      } as BarbarianConfiguration
+      config: values.config
     });
     setArmy(prev => ({ ...prev, entities }));
     updateArmyQuery.patch(`http://localhost/users/602ebcb8be9e91334c4cbf18/armies/${army.id}`, { entities });
@@ -45,8 +39,9 @@ export const EditContainer: FC = () => {
 
   return (
     <>
-      <EditForm onSubmit={handleEditFormSubmit} />
+      <EditForm onSubmit={handleCreate} />
       {army && <Canvas army={army} width={army.size.width} height={army.size.height} />}
+      {updateArmyQuery.status === Status.ERROR && updateArmyQuery.errorResponse.errors.map((error, i) => <p key={i}>{error.error_description}</p>)}
     </>
   );
 }

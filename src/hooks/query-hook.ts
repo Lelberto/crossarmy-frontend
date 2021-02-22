@@ -3,9 +3,9 @@ import { useState } from 'react';
 import { Response, ErrorResponse } from '../types/response-types';
 
 /**
- * Query interface.
+ * Query.
  */
-export interface Query<R extends Response> {
+export type Query<R extends Response> = {
   status: Status;
   response: R;
   errorResponse: ErrorResponse;
@@ -17,7 +17,7 @@ export interface Query<R extends Response> {
 }
 
 /**
- * Status interface.
+ * Status enumeration.
  */
 export enum Status {
   INIT = 0,

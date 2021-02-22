@@ -1,7 +1,7 @@
 import { EntityConfiguration } from './configuration-types';
 
 /**
- * ID interface.
+ * ID.
  * 
  * This interface is used with data interfaces that have ID by extending this.
  */
@@ -10,7 +10,7 @@ interface ID {
 }
 
 /**
- * Timestamps interface.
+ * Timestamps.
  * 
  * This interface is used with data interfaces that have timestamps by extending this.
  */
@@ -20,7 +20,7 @@ interface TimeStamps {
 }
 
 /**
- * User data interface.
+ * User data.
  */
 export interface UserData extends ID, TimeStamps {
   email: string;
@@ -30,7 +30,7 @@ export interface UserData extends ID, TimeStamps {
 }
 
 /**
- * Army data interface.
+ * Army data.
  */
 export interface ArmyData extends ID {
   owner: UserData;
@@ -39,7 +39,7 @@ export interface ArmyData extends ID {
 }
 
 /**
- * Entity data interface.
+ * Entity data.
  */
 export interface EntityData {
   position: { x: number, y: number };
@@ -49,7 +49,7 @@ export interface EntityData {
 }
 
 /**
- * Error data interface.
+ * Error data.
  */
 export interface ErrorData {
   error: ErrorCode;

@@ -1,26 +1,26 @@
 /**
- * Entity configuration interface.
+ * Entity configuration.
  */
 export interface EntityConfiguration {
   type: EntityType;
 }
 
 /**
- * Living entity configuration interface.
+ * Living entity configuration.
  */
 export interface LivingEntityConfiguration extends EntityConfiguration {
   speed: number;
 }
 
 /**
- * Barbarian configuration interface.
+ * Barbarian configuration.
  */
 export interface BarbarianConfiguration extends LivingEntityConfiguration {
   speedMultiplier: number;
 }
 
 /**
- * Archer configuration interface.
+ * Archer configuration.
  */
 export interface ArcherConfiguration extends LivingEntityConfiguration {
   shootSpeed: number;

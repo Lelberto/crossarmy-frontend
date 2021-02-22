@@ -1,6 +1,7 @@
 import { FC, useState } from 'react';
 import { ConfigEditForm, ConfigEditFormValues } from './config-edit-form';
 import { BasicEditForm, BasicEditFormValues } from './basic-edit-form';
+import { EntityType } from '../../types/configuration-types';
 
 /**
  * Edit form values.
@@ -27,7 +28,7 @@ export type EditFormProps = {
  */
 export const EditFormContainer: FC<EditFormProps> = ({ onSubmit }) => {
   const [basicValues, setBasicValues] = useState<BasicEditFormValues>(null);
-  const [configValues, setConfigValues] = useState<ConfigEditFormValues>(null);
+  const [configValues, setConfigValues] = useState<ConfigEditFormValues>({ type: EntityType.BARBARIAN });
 
   return (
     <div>

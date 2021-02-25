@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from 'react';
 import { Status, useQuery } from '../../hooks/query-hook';
-import { ArmyData } from '../../types/data-types';
-import { CreationResponse, GetArmiesResponse } from '../../types/response-types';
+import { ArmyData } from '../../util/types/data-types';
+import { CreationResponse, GetArmiesResponse } from '../../util/types/response-types';
 import { Canvas } from '../canvas';
 import { EditFormContainer as EditForm, EditFormValues } from './edit-form';
 

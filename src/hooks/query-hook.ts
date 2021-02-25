@@ -1,6 +1,6 @@
 import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
 import { useState } from 'react';
-import { Response, ErrorResponse } from '../types/response-types';
+import { Response, ErrorResponse } from '../util/types/response-types';
 
 /**
  * Query.

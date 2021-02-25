@@ -1,6 +1,6 @@
 import React, { FC, useMemo } from 'react';
 import { useForm } from 'react-hook-form';
-import { EntityConfiguration, EntityType } from '../../types/configuration-types';
+import { EntityConfiguration, EntityType } from '../../util/types/configuration-types';
 import { ShootSpeedInput, SpeedInput, SpeedMultiplierInput } from './config-inputs';
 
 /**
@@ -48,7 +48,7 @@ export const ConfigEditForm: FC<ConfigEditFormProps> = ({ type, onSubmit }) => {
       default: return <></>;
     }
   }, [type]);
-  
+
 
   return (
     <form onSubmit={handleChange}>

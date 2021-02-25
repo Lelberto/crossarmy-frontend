@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { useForm } from 'react-hook-form';
-import { EntityType } from '../../types/configuration-types';
+import { EntityType } from '../../util/types/configuration-types';
 
 /**
  * Basic edit form values.

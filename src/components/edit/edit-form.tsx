@@ -1,7 +1,7 @@
 import { FC, useState } from 'react';
 import { ConfigEditForm, ConfigEditFormValues } from './config-edit-form';
 import { BasicEditForm, BasicEditFormValues } from './basic-edit-form';
-import { EntityType } from '../../types/configuration-types';
+import { EntityType } from '../../util/types/configuration-types';
 
 /**
  * Edit form values.

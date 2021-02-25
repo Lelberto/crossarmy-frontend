@@ -1,5 +1,5 @@
 import { FC, HTMLProps, useEffect, useRef } from 'react';
-import { ArmyData } from '../types/data-types';
+import { ArmyData } from '../util/types/data-types';
 
 /**
  * Canvas props.

@@ -1,29 +1,25 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useContext, useEffect, useState } from 'react';
 import { Status, useQuery } from '../../hooks/query-hook';
+import config from '../../util/config';
 import { ArmyData } from '../../util/types/data-types';
-import { CreationResponse, GetArmiesResponse } from '../../util/types/response-types';
+import { CreationResponse } from '../../util/types/response-types';
 import { Canvas } from '../canvas';
+import { AuthenticationContext } from '../contexts/authentication-context';
 import { EditFormContainer as EditForm, EditFormValues } from './edit-form';
 
 /**
  * Edit container.
  */
 export const EditContainer: FC = () => {
+  const { authUser } = useContext(AuthenticationContext);
   const [army, setArmy] = useState<ArmyData>(null);
-  const armyQuery = useQuery<GetArmiesResponse>();
   const updateArmyQuery = useQuery<CreationResponse>();
 
   useEffect(() => {
-    switch (armyQuery.status) {
-      case Status.INIT:
-        armyQuery.get(`http://localhost/users/602ebcb8be9e91334c4cbf18/armies`);
-        break;
-      case Status.SUCCESS:
-        setArmy(armyQuery.response.armies[0]);
-        break;
-      default: break;
+    if (authUser) {
+      setArmy(authUser.armies[0]);
     }
-  }, [armyQuery.status]);
+  }, [authUser]);
 
   const handleCreate = (values: EditFormValues) => {
     const entities = [...army.entities];
@@ -34,7 +30,7 @@ export const EditContainer: FC = () => {
       config: values.config
     });
     setArmy(prev => ({ ...prev, entities }));
-    updateArmyQuery.patch(`http://localhost/users/602ebcb8be9e91334c4cbf18/armies/${army.id}`, { entities });
+    updateArmyQuery.patch(`${config.api.url}/users/${authUser.id}/armies/${army.id}`, { entities });
   }
 
   return (
